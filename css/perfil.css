@@ -1,36 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #dae0e6;
-    color: #1c1c1c;
-}
-
-/* HEADER */
-header {
-    background-color: #ff4500;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 1rem;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
 /* MAIN */
 main {
     max-width: 1000px;
@@ -113,32 +80,4 @@ th {
 
 .boton-editar:hover {
     background-color: #005a9e;
-}
-
-/* FOOTER  */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #333;
-    color: white;
-    margin-top: 2rem;
-}
-
-
-/* Investigue como poner modo oscuro sin javascript y esto detecta la configuracion de windows (se me quemaban los ojos) */
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1a1a1b;
-        color: #d7dadc;
-    }
-
-    .tarjeta {
-        background-color: #272729;
-    }
-
-    th {
-        background-color: #343536;
-    }
-
 }

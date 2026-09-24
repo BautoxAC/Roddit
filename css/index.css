@@ -1,0 +1,68 @@
+/* El Main usa Grid para hacer 2 columnas (2fr para el feed, 1fr para el aside) */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Agrupa las publicaciones dejando un espacio entre ellas */
+.feed-publicaciones {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Estilo de cada publicación (Tarjeta) */
+.post, .tarjeta-lateral {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.comunidad-info {
+    font-size: 0.85rem;
+    color: #787c7e;
+    margin-bottom: 0.5rem;
+}
+
+.post h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.post p {
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Boton de comentarios */
+.boton-comentarios {
+    background-color: #e2e7ec;
+    color: #1a1a1b;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.boton-comentarios:hover {
+    background-color: #d3d6da;
+}
+
+/* Estilos de la barra lateral */
+.tarjeta-lateral h3 {
+    color: #ff4500;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.tarjeta-lateral ol {
+    margin-left: 1.5rem;
+    line-height: 1.6;
+}

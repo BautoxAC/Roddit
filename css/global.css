@@ -1,0 +1,66 @@
+/* CSS para agrupar todos los estilos que comparten la mayoria de los CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dae0e6;
+    color: #1a1a1b;
+}
+
+header {
+    background-color: #ff6600;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #787c7e;
+    margin-top: 2rem;
+}
+
+/* Investigue como poner modo oscuro sin javascript y esto detecta la configuracion de windows (se me quemaban los ojos) */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1b;
+        color: #d7dadc;
+    }
+
+    .tarjeta {
+        background-color: #272729;
+    }
+
+    th,
+    .post, 
+    .tarjeta-lateral, 
+    .post-detalle, 
+    .seccion-comentarios {
+        background-color: #343536;
+    }
+
+    .seccion-comentarios h3 {
+        color: #dae0e6;
+    }
+
+}
