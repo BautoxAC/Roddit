@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dae0e6;
+    color: #1c1c1c;
+}
+
+/* HEADER */
+header {
+    background-color: #ff4500;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* MAIN */
+main {
+    max-width: 1000px;
+    margin: 2rem auto; /* Centra el contenido en la pantalla */
+    padding: 0 1rem;
+    display: grid;
+    /* Divide en dos columnas: Izquierda ocupa 2 partes, derecha ocupa 1 parte */
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem; /* Espacio entre columnas */
+}
+
+/* TARJETAS */
+.tarjeta {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tarjeta h2, .tarjeta h3 {
+    color: #913412;
+    margin-bottom: 1rem;
+}
+
+/* Estilo del "Avatar" */
+.avatar {
+    display: block; /* Para que tome ancho y alto */
+    width: 60px;
+    height: 60px;
+    background-color: #0b6e6e;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px; /* Centra el texto verticalmente */
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+/* Estilos de las listas de las tarjetas */
+.tarjeta ul {
+    list-style-type: none;
+}
+
+.tarjeta li {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* TABLA */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f5f7f4;
+}
+
+/* BOTON DE EDITAR  */
+.boton-editar {
+    display: block;
+    background-color: #0079d3;
+    color: white;
+    text-align: center;
+    padding: 0.8rem;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.boton-editar:hover {
+    background-color: #005a9e;
+}
+
+/* FOOTER  */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #333;
+    color: white;
+    margin-top: 2rem;
+}
+
+
+/* Investigue como poner modo oscuro sin javascript y esto detecta la configuracion de windows (se me quemaban los ojos) */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1b;
+        color: #d7dadc;
+    }
+
+    .tarjeta {
+        background-color: #272729;
+    }
+
+    th {
+        background-color: #343536;
+    }
+
+}
