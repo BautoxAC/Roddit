@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--bg);
@@ -15,8 +16,17 @@ body {
     flex-direction: column;
 }
 
-main{
+main {
     flex: 1;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+span{
+    font-family: Arial, sans-serif;
 }
 /* Investigue como poner modo oscuro sin javascript y esto detecta la configuracion de windows (se me quemaban los ojos) */
 

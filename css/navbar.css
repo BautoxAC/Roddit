@@ -13,6 +13,9 @@
   align-items: center;
   gap: 16px;
 }
+.header-inner  span{
+     font-family: Georgia, "Times New Roman", serif;
+}
 
 .logo {
   display: flex;
