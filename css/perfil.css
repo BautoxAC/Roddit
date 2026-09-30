@@ -135,10 +135,42 @@ th {
   padding-bottom: 10%;
 }
 
+/* PUBLICACION DEL PERFIL */
+
+.mini-posts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  
+}
+
+.mini-post {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-posts li {
+  display: grid;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  
+}
+
+.mini-posts .mini-titulo {
+  font-weight: bold;
+}
+
+.mini-posts .info-publicacion {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+
 /* BOTON DE EDITAR  */
 .boton-editar {
     display: block;
-    background-color: #0079d3;
+    background-color: var(--accent-dark);
     color: white;
     text-align: center;
     padding: 0.8rem;
@@ -148,5 +180,5 @@ th {
 }
 
 .boton-editar:hover {
-    background-color: #005a9e;
+    background-color: var(--ink);
 }
