@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Publicación en r/Programacion: cómo hacer que el footer se quede al final de la página usando flexbox.">
+  <title>Mi primer sitio estático quedó listo, pero el footer no se queda abajo | Roddit</title>
+  <link rel="stylesheet" href="css/publicacion.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Roddit, ir al inicio">
+        <span class="logo-icon" aria-hidden="true">R</span>
+        <span>roddit</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+
+      <div class="search" role="search">
+        <label class="visually-hidden" for="buscar">Buscar en Roddit</label>
+        <input type="search" id="buscar" name="q" placeholder="Buscar en Roddit">
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="btn-create">+ Crear</button>
+        <button type="button" class="icon-btn" aria-label="Notificaciones">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z" />
+          </svg>
+        </button>
+        <a class="avatar-link" href="perfil.html" aria-label="Ver mi perfil (PehuenDev)">
+          <span class="avatar av-1" aria-hidden="true">PD</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout layout-2">
+
+    <!-- ===== CONTENIDO PRINCIPAL: DETALLE ===== -->
+    <main id="contenido">
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="#">r/Programacion</a></li>
+          <li aria-current="page">Publicación</li>
+        </ol>
+      </nav>
+
+      <article class="post post-full c-prog" itemscope itemtype="https://schema.org/DiscussionForumPosting">
+        <div class="votes">
+          <button type="button" class="vote-btn" aria-label="Votar a favor">▲</button>
+          <span class="vote-count" aria-label="128 votos">128</span>
+          <button type="button" class="vote-btn" aria-label="Votar en contra">▼</button>
+        </div>
+        <div class="post-body">
+          <header>
+            <p class="post-meta">
+              <a class="community" href="#"><span class="com-dot" aria-hidden="true"></span>r/Programacion</a>
+              <span>Publicado por <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span
+                    itemprop="name">u/PehuenDev</span></span></span>
+              <time>hace 2 h</time>
+              <span class="tag">Ayuda</span>
+            </p>
+            <h1 class="post-title" itemprop="headline">Mi primer sitio estático quedó listo, pero el footer no se queda
+              abajo. ¿Qué hago mal?</h1>
+          </header>
+
+          <div class="post-text" itemprop="articleBody">
+            <p>Estoy armando mi primer sitio estático para la facultad, solo con HTML y CSS. Tengo un header, el
+              contenido principal y un footer con enlaces.</p>
+            <p>El problema: cuando la página tiene poco texto, el footer queda flotando a mitad de pantalla en lugar de
+              pegarse al borde inferior. Probé con <code>position: absolute</code> y <code>bottom: 0</code>, pero en el
+              celular se superpone con el contenido.</p>
+            <p>¿Cuál es la forma más simple y prolija de resolverlo?</p>
+            <p class="edit-note"><strong>Edición:</strong> gracias por las respuestas, ya lo resolví con flexbox. Dejo
+              el hilo por si le sirve a alguien más.</p>
+          </div>
+
+          <meta itemprop="commentCount" content="5">
+          <footer class="post-footer">
+            <span>5 comentarios</span>
+            <button type="button">Compartir</button>
+            <button type="button">Guardar</button>
+          </footer>
+        </div>
+      </article>
+
+      <!-- ===== COMENTARIOS ===== -->
+      <section class="comments-section" aria-labelledby="comentarios">
+        <h2 id="comentarios">Comentarios</h2>
+
+        <ol class="comment-list">
+          <li>
+            <article class="comment">
+              <header class="comment-header">
+                <span class="avatar av-2" aria-hidden="true">CA</span>
+                <strong>u/ciervoAustral</strong>
+                <time datetime="2026-09-23T13:40:00-03:00">hace 1 h</time>
+              </header>
+              <p>Lo más simple: convertí el <code>body</code> en una columna flex y hacé que el <code>main</code> ocupe
+                el espacio sobrante.</p>
+              <pre><code>body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}</code></pre>
+              <div class="comment-actions">
+                <span>▲ 45</span>
+                <span>Responder</span>
+              </div>
+
+              <ol>
+                <li>
+                  <article class="comment">
+                    <header class="comment-header">
+                      <span class="avatar av-1" aria-hidden="true">PD</span>
+                      <strong>u/PehuenDev</strong>
+                      <span>autor</span>
+                      <time datetime="2026-09-23T13:55:00-03:00">hace 1 h</time>
+                    </header>
+                    <p>¡Funcionó al instante! Una duda: ¿por qué hace falta <code>min-height</code> y no
+                      <code>height</code>?</p>
+                    <div class="comment-actions">
+                      <span>▲ 12</span>
+                      <span>Responder</span>
+                    </div>
+
+                    <ol>
+                      <li>
+                        <article class="comment">
+                          <header class="comment-header">
+                            <span class="avatar av-2" aria-hidden="true">CA</span>
+                            <strong>u/ciervoAustral</strong>
+                            <time datetime="2026-09-23T14:05:00-03:00">hace 1 h</time>
+                          </header>
+                          <p>Con <code>height</code> fijo, el body no crece si el contenido es más largo que la
+                            pantalla. Con <code>min-height</code> es un piso: crece cuando hace falta.</p>
+                          <div class="comment-actions">
+                            <span>▲ 30</span>
+                            <span>Responder</span>
+                          </div>
+                        </article>
+                      </li>
+                    </ol>
+                  </article>
+                </li>
+              </ol>
+            </article>
+          </li>
+
+          <li>
+            <article class="comment">
+              <header class="comment-header">
+                <span class="avatar av-3" aria-hidden="true">TF</span>
+                <strong>u/tortaFritaDev</strong>
+                <time datetime="2026-09-23T14:20:00-03:00">hace 50 min</time>
+              </header>
+              <p>Otra opción es usar grid: <code>grid-template-rows: auto 1fr auto</code> en el body hace lo mismo con
+                menos propiedades.</p>
+              <div class="comment-actions">
+                <span>▲ 21</span>
+                <span>Responder</span>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="comment">
+              <header class="comment-header">
+                <span class="avatar av-4" aria-hidden="true">MC</span>
+                <strong>u/mate_y_codigo</strong>
+                <time datetime="2026-09-23T14:35:00-03:00">hace 35 min</time>
+              </header>
+              <p>Un tip de accesibilidad: usá <code>header</code>, <code>main</code> y <code>footer</code> en lugar de
+                <code>div</code>. Los lectores de pantalla permiten saltar entre esas regiones.</p>
+              <div class="comment-actions">
+                <span>▲ 17</span>
+                <span>Responder</span>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <!-- ===== BARRA LATERAL DERECHA ===== -->
+    <aside class="sidebar-right" aria-label="Información de la comunidad">
+      <section class="card" aria-labelledby="sobre-com">
+        <h2 id="sobre-com">Sobre r/Programacion</h2>
+        <p>Dudas, proyectos y trucos para quienes están aprendiendo a programar y para quienes ya lo hacen hace rato.
+        </p>
+        <dl class="about-stats">
+          <div>
+            <dt>Miembros</dt>
+            <dd>4,8 mil</dd>
+          </div>
+          <div>
+            <dt>Conectados</dt>
+            <dd>97</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card" aria-labelledby="reglas">
+        <h2 id="reglas">Reglas de la comunidad</h2>
+        <ol>
+          <li>Explicá qué intentaste antes de preguntar.</li>
+          <li>Compartí el código como texto, no como captura.</li>
+          <li>Marcá el hilo como resuelto cuando corresponda.</li>
+        </ol>
+      </section>
+
+      <a class="btn-primary" href="index.html">Volver al inicio</a>
+    </aside>
+  </div>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Roddit. Proyecto académico – Facultad de Informática, UNCo.</p>
+      <nav aria-label="Enlaces legales">
+        <ul>
+          <li><a href="#">Reglas</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Acuerdo de usuario</a></li>
+          <li><a href="#">Accesibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+
+</html>

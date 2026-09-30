@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Roddit: comunidades donde se conversa de programación, fotografía, cocina, juegos y cine. Mirá las publicaciones más destacadas.">
+  <title>Roddit | Inicio</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Roddit, ir al inicio">
+        <span class="logo-icon" aria-hidden="true">R</span>
+        <span>roddit</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+
+      <div class="search" role="search">
+        <input type="search" id="buscar" name="q" placeholder="Buscar en Roddit">
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="btn-create">+ Crear</button>
+        <button type="button" class="icon-btn" aria-label="Notificaciones">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+        </button>
+        <a class="avatar-link" href="perfil.html" aria-label="Ver mi perfil (PehuenDev)">
+          <span class="avatar av-1" aria-hidden="true">PD</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ===== BARRA LATERAL IZQUIERDA ===== -->
+    <aside class="sidebar-left" aria-label="Comunidades">
+      <nav aria-label="Secciones">
+        <div class="card">
+          <h2>Explorar</h2>
+          <ul>
+            <li><a href="index.html" aria-current="page">Inicio</a></li>
+            <li><a href="#">Populares</a></li>
+            <li><a href="#">Novedades</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav aria-label="Comunidades">
+        <div class="card">
+          <h2>Comunidades</h2>
+          <ul>
+            <li><a href="#"><span class="com-dot c-prog" aria-hidden="true"></span>r/Programacion</a></li>
+            <li><a href="#"><span class="com-dot c-foto" aria-hidden="true"></span>r/FotosPatagonia</a></li>
+            <li><a href="#"><span class="com-dot c-cocina" aria-hidden="true"></span>r/CocinaSinDrama</a></li>
+            <li><a href="#"><span class="com-dot c-juegos" aria-hidden="true"></span>r/JuegosDeMesa</a></li>
+            <li><a href="#"><span class="com-dot c-cine" aria-hidden="true"></span>r/Cine</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ===== CONTENIDO PRINCIPAL: LISTADO ===== -->
+    <main id="contenido">
+      <div class="feed-toolbar">
+        <h1>Lo mejor de hoy</h1>
+        <button type="button" class="chip" aria-pressed="true">Mejores</button>
+        <button type="button" class="chip" aria-pressed="false">Nuevos</button>
+        <button type="button" class="chip" aria-pressed="false">Más comentados</button>
+      </div>
+
+      <!-- Publicación 1 (tiene página de detalle) -->
+      <article class="post c-prog" itemscope itemtype="https://schema.org/DiscussionForumPosting">
+        <div class="votes">
+          <button type="button" class="vote-btn" aria-label="Votar a favor">▲</button>
+          <span class="vote-count" aria-label="128 votos">128</span>
+          <button type="button" class="vote-btn" aria-label="Votar en contra">▼</button>
+        </div>
+        <div class="post-body">
+          <header>
+            <p class="post-meta">
+              <a class="community" href="#"><span class="com-dot" aria-hidden="true"></span>r/Programacion</a>
+              <span>Publicado por <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">u/PehuenDev</span></span></span>
+              <time datetime="2026-09-23T13:10:00-03:00" itemprop="datePublished">hace 2 h</time>
+              <span class="tag">Ayuda</span>
+            </p>
+            <h2 class="post-title" itemprop="headline">
+              <a href="publicacion.html">Mi primer sitio estático quedó listo, pero el footer no se queda abajo. ¿Qué hago mal?</a>
+            </h2>
+          </header>
+          <div class="post-text" itemprop="abstract">
+            <p>Tengo header, contenido y footer, pero cuando la página tiene poco texto el footer queda flotando a mitad de pantalla. Probé con <code>position: absolute</code> y en el celular se superpone con todo.</p>
+          </div>
+          <meta itemprop="commentCount" content="5">
+          <footer class="post-footer">
+            <a href="publicacion.html">5 comentarios</a>
+            <button type="button">Compartir</button>
+            <button type="button">Guardar</button>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Publicación 2 (con imagen) -->
+      <article class="post c-foto" itemscope itemtype="https://schema.org/DiscussionForumPosting">
+        <div class="votes">
+          <button type="button" class="vote-btn" aria-label="Votar a favor">▲</button>
+          <span class="vote-count" aria-label="842 votos">842</span>
+          <button type="button" class="vote-btn" aria-label="Votar en contra">▼</button>
+        </div>
+        <div class="post-body">
+          <header>
+            <p class="post-meta">
+              <a class="community" href="#"><span class="com-dot" aria-hidden="true"></span>r/FotosPatagonia</a>
+              <span>Publicado por <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">u/ciervoAustral</span></span></span>
+              <time datetime="2026-09-23T10:20:00-03:00" itemprop="datePublished">hace 5 h</time>
+            </p>
+            <h2 class="post-title" itemprop="headline">Amanecer en el lago, camino a Villa La Angostura</h2>
+          </header>
+          <figure class="post-media">
+            <svg viewBox="0 0 640 320" role="img" aria-labelledby="lago-desc" focusable="false">
+              <title id="lago-desc">Ilustración de un lago al amanecer con montañas de fondo y el sol reflejado en el agua</title>
+              <rect width="640" height="320" fill="#f6c58a"/>
+              <circle cx="470" cy="120" r="46" fill="#fde7b0"/>
+              <polygon points="0,220 120,110 200,180 300,80 430,210 520,140 640,230 640,320 0,320" fill="#4d5f7a"/>
+              <polygon points="0,250 90,170 170,230 260,150 360,240 470,180 640,250 640,320 0,320" fill="#2f4058"/>
+              <rect y="245" width="640" height="75" fill="#2a6f86"/>
+              <rect x="440" y="252" width="60" height="6" rx="3" fill="#fde7b0"/>
+              <rect x="452" y="266" width="36" height="6" rx="3" fill="#fde7b0"/>
+            </svg>
+            <figcaption>Imagen ilustrativa de la publicación.</figcaption>
+          </figure>
+          <meta itemprop="commentCount" content="57">
+          <footer class="post-footer">
+            <a href="#">57 comentarios</a>
+            <button type="button">Compartir</button>
+            <button type="button">Guardar</button>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Publicación 3 -->
+      <article class="post c-cocina" itemscope itemtype="https://schema.org/DiscussionForumPosting">
+        <div class="votes">
+          <button type="button" class="vote-btn" aria-label="Votar a favor">▲</button>
+          <span class="vote-count" aria-label="311 votos">311</span>
+          <button type="button" class="vote-btn" aria-label="Votar en contra">▼</button>
+        </div>
+        <div class="post-body">
+          <header>
+            <p class="post-meta">
+              <a class="community" href="#"><span class="com-dot" aria-hidden="true"></span>r/CocinaSinDrama</a>
+              <span>Publicado por <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">u/tortaFritaDev</span></span></span>
+              <time datetime="2026-09-23T07:30:00-03:00" itemprop="datePublished">hace 8 h</time>
+              <span class="tag">Receta</span>
+            </p>
+            <h2 class="post-title" itemprop="headline">Chipá en 25 minutos con lo que tenés en la heladera</h2>
+          </header>
+          <div class="post-text" itemprop="abstract">
+            <p>Almidón de mandioca, queso, un huevo y un chorrito de leche. Se amasa, se forman bolitas y al horno. Les dejo las cantidades y el truco para que queden crocantes por fuera y tiernos por dentro.</p>
+          </div>
+          <meta itemprop="commentCount" content="42">
+          <footer class="post-footer">
+            <a href="#">42 comentarios</a>
+            <button type="button">Compartir</button>
+            <button type="button">Guardar</button>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Publicación 4 -->
+      <article class="post c-juegos" itemscope itemtype="https://schema.org/DiscussionForumPosting">
+        <div class="votes">
+          <button type="button" class="vote-btn" aria-label="Votar a favor">▲</button>
+          <span class="vote-count" aria-label="96 votos">96</span>
+          <button type="button" class="vote-btn" aria-label="Votar en contra">▼</button>
+        </div>
+        <div class="post-body">
+          <header>
+            <p class="post-meta">
+              <a class="community" href="#"><span class="com-dot" aria-hidden="true"></span>r/JuegosDeMesa</a>
+              <span>Publicado por <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">u/mate_y_codigo</span></span></span>
+              <time datetime="2026-09-22T22:45:00-03:00" itemprop="datePublished">hace 15 h</time>
+              <span class="tag">Pregunta</span>
+            </p>
+            <h2 class="post-title" itemprop="headline">¿Qué juego cooperativo recomiendan para un grupo de 5 que nunca jugó nada?</h2>
+          </header>
+          <div class="post-text" itemprop="abstract">
+            <p>Tenemos una tarde libre, un living grande y cero experiencia con juegos de mesa. Buscamos algo que se explique en menos de diez minutos y que no termine en pelea.</p>
+          </div>
+          <meta itemprop="commentCount" content="71">
+          <footer class="post-footer">
+            <a href="#">71 comentarios</a>
+            <button type="button">Compartir</button>
+            <button type="button">Guardar</button>
+          </footer>
+        </div>
+      </article>
+
+      <!-- Publicación 5 -->
+      <article class="post c-cine" itemscope itemtype="https://schema.org/DiscussionForumPosting">
+        <div class="votes">
+          <button type="button" class="vote-btn" aria-label="Votar a favor">▲</button>
+          <span class="vote-count" aria-label="54 votos">54</span>
+          <button type="button" class="vote-btn" aria-label="Votar en contra">▼</button>
+        </div>
+        <div class="post-body">
+          <header>
+            <p class="post-meta">
+              <a class="community" href="#"><span class="com-dot" aria-hidden="true"></span>r/Cine</a>
+              <span>Publicado por <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">u/luciernagaSur</span></span></span>
+              <time datetime="2026-09-22T18:00:00-03:00" itemprop="datePublished">hace 20 h</time>
+            </p>
+            <h2 class="post-title" itemprop="headline">Terminé una maratón de películas filmadas en un solo plano y tengo opiniones</h2>
+          </header>
+          <div class="post-text" itemprop="abstract">
+            <p>Vi cinco en tres días. Algunas te dejan sin aire, otras parecen un ejercicio de cámara. Comparto el ranking y quiero que me digan cuál me falta.</p>
+          </div>
+          <meta itemprop="commentCount" content="19">
+          <footer class="post-footer">
+            <a href="#">19 comentarios</a>
+            <button type="button">Compartir</button>
+            <button type="button">Guardar</button>
+          </footer>
+        </div>
+      </article>
+    </main>
+
+    <!-- ===== BARRA LATERAL DERECHA ===== -->
+    <aside class="sidebar-right" aria-label="Información de Roddit">
+      <section class="card" aria-labelledby="sobre-roddit">
+        <h2 id="sobre-roddit">Sobre Roddit</h2>
+        <p>Un espacio para conversar de lo que te gusta, en comunidades chicas y con buena onda.</p>
+        <dl class="about-stats">
+          <div><dt>Miembros</dt><dd>12,4 mil</dd></div>
+          <div><dt>Conectados</dt><dd>318</dd></div>
+        </dl>
+      </section>
+
+      <section class="card" aria-labelledby="reglas">
+        <h2 id="reglas">Reglas de convivencia</h2>
+        <ol>
+          <li>Tratá bien a las personas.</li>
+          <li>Publicá en la comunidad correcta.</li>
+          <li>No hagas spam.</li>
+          <li>Citá tus fuentes.</li>
+        </ol>
+      </section>
+    </aside>
+  </div>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Roddit. Proyecto académico – Facultad de Informática, UNCo.</p>
+      <nav aria-label="Enlaces legales">
+        <ul>
+          <li><a href="#">Reglas</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Acuerdo de usuario</a></li>
+          <li><a href="#">Accesibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

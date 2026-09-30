@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Perfil de u/PehuenDev en Roddit: datos de la cuenta, estadísticas, actividad por comunidad y publicaciones recientes.">
+  <title>Perfil de u/PehuenDev | Roddit</title>
+  <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Roddit, ir al inicio">
+        <span class="logo-icon" aria-hidden="true">R</span>
+        <span>roddit</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="perfil.html" aria-current="page">Perfil</a></li>
+        </ul>
+      </nav>
+
+      <div class="search" role="search">
+        <label class="visually-hidden" for="buscar">Buscar en Roddit</label>
+        <input type="search" id="buscar" name="q" placeholder="Buscar en Roddit">
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="btn-create">+ Crear</button>
+        <button type="button" class="icon-btn" aria-label="Notificaciones">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+        </button>
+        <a class="avatar-link" href="perfil.html" aria-label="Ver mi perfil (PehuenDev)">
+          <span class="avatar av-1" aria-hidden="true">PD</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout layout-2">
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main id="contenido" itemscope itemtype="https://schema.org/ProfilePage">
+
+      <!-- Cabecera del perfil -->
+      <section class="profile-header" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person" aria-labelledby="nombre-usuario">
+        <div class="profile-banner" aria-hidden="true"></div>
+        <div class="profile-id">
+          <span class="avatar avatar-xl av-1" aria-hidden="true">PD</span>
+          <div>
+            <h1 id="nombre-usuario" itemprop="name">PehuenDev</h1>
+            <p class="handle">u/PehuenDev</p>
+          </div>
+        </div>
+        <p class="profile-bio" itemprop="description">Estudiante de Informática en Neuquén. Aprendo HTML y CSS, tomo mate mientras programo y me gusta ayudar con dudas de principiantes.</p>
+      </section>
+
+      <!-- Estadísticas -->
+      <section class="card" aria-labelledby="estadisticas">
+        <h2 id="estadisticas">Estadísticas</h2>
+        <dl class="stats">
+          <div><dt>Karma total</dt><dd>4.210</dd></div>
+          <div><dt>Publicaciones</dt><dd>23</dd></div>
+          <div><dt>Comentarios</dt><dd>318</dd></div>
+          <div><dt>Días en Roddit</dt><dd>412</dd></div>
+        </dl>
+      </section>
+
+      <!-- Datos de la cuenta -->
+      <section class="card" aria-labelledby="datos-cuenta">
+        <h2 id="datos-cuenta">Datos de la cuenta</h2>
+        <dl class="data-list">
+          <dt>Nombre de usuario</dt>
+          <dd>u/PehuenDev</dd>
+
+          <dt>Miembro desde</dt>
+          <dd><time datetime="2025-08-07">7 de agosto de 2025</time></dd>
+
+          <dt>Ubicación</dt>
+          <dd itemprop="homeLocation">Neuquén, Argentina</dd>
+
+          <dt>Idioma</dt>
+          <dd>Español (Argentina)</dd>
+
+          <dt>Correo</dt>
+          <dd>pe*****@ejemplo.com</dd>
+
+          <dt>Estado</dt>
+          <dd>Cuenta verificada</dd>
+        </dl>
+      </section>
+
+      <!-- Actividad (tabla accesible) -->
+      <section class="card" aria-labelledby="actividad">
+        <h2 id="actividad">Actividad por comunidad</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Publicaciones, comentarios y karma obtenido en cada comunidad</caption>
+            <thead>
+              <tr>
+                <th scope="col">Comunidad</th>
+                <th scope="col" class="num">Publicaciones</th>
+                <th scope="col" class="num">Comentarios</th>
+                <th scope="col" class="num">Karma</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">r/Programacion</th>
+                <td class="num">14</td>
+                <td class="num">201</td>
+                <td class="num">3.050</td>
+              </tr>
+              <tr>
+                <th scope="row">r/JuegosDeMesa</th>
+                <td class="num">5</td>
+                <td class="num">64</td>
+                <td class="num">720</td>
+              </tr>
+              <tr>
+                <th scope="row">r/CocinaSinDrama</th>
+                <td class="num">3</td>
+                <td class="num">38</td>
+                <td class="num">330</td>
+              </tr>
+              <tr>
+                <th scope="row">r/Cine</th>
+                <td class="num">1</td>
+                <td class="num">15</td>
+                <td class="num">110</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Publicaciones recientes -->
+      <section class="card" aria-labelledby="recientes">
+        <h2 id="recientes">Publicaciones recientes</h2>
+        <ul class="mini-posts">
+          <li>
+            <a class="mini-title" href="publicacion.html">Mi primer sitio estático quedó listo, pero el footer no se queda abajo. ¿Qué hago mal?</a>
+            <span class="mini-meta">r/Programacion – <time datetime="2026-09-23T13:10:00-03:00">hace 2 h</time> – 128 votos – 5 comentarios</span>
+          </li>
+          <li>
+            <span class="mini-title">Guía rápida: diferencias entre flexbox y grid</span>
+            <span class="mini-meta">r/Programacion – <time datetime="2026-09-15">hace 8 días</time> – 260 votos – 31 comentarios</span>
+          </li>
+          <li>
+            <span class="mini-title">Busco juegos de mesa para dos personas</span>
+            <span class="mini-meta">r/JuegosDeMesa – <time datetime="2026-09-02">hace 3 semanas</time> – 48 votos – 22 comentarios</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- ===== BARRA LATERAL DERECHA ===== -->
+    <aside class="sidebar-right" aria-label="Logros y acciones">
+      <section class="card" aria-labelledby="logros">
+        <h2 id="logros">Logros</h2>
+        <ul class="badge-list">
+          <li>Cuenta verificada</li>
+          <li>Primer año</li>
+          <li>Ayudante del mes</li>
+          <li>100 comentarios</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="comunidades-usuario">
+        <h2 id="comunidades-usuario">Comunidades a las que pertenece</h2>
+        <ul class="badge-list">
+          <li>r/Programacion</li>
+          <li>r/JuegosDeMesa</li>
+          <li>r/CocinaSinDrama</li>
+          <li>r/Cine</li>
+        </ul>
+      </section>
+
+      <button type="button" class="btn-primary">Editar perfil</button>
+    </aside>
+  </div>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Roddit. Proyecto académico – Facultad de Informática, UNCo.</p>
+      <nav aria-label="Enlaces legales">
+        <ul>
+          <li><a href="#">Reglas</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Acuerdo de usuario</a></li>
+          <li><a href="#">Accesibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
