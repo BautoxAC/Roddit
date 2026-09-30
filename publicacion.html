@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/publicacion.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
@@ -48,16 +49,36 @@
 
     <main>
         <!-- Post principal -->
-        <article class="post-detalle">
-            <div class="publicacion-usuario">
-                <a class="avatar-link" href="#" aria-label="Ver perfil de Desarrollador">
-                    <span class="avatar av-1" aria-hidden="true">Dev</span>
-                </a>
-                <p class="comunidad-info">Publicado en c/DesarrolloWeb por @Dev</p>
-            </div>
+        <article class="post">
+            <header class="post-header">
+                <div class="publicacion-usuario">
+                    <a class="avatar-link" href="#" aria-label="Ver perfil de Desarrollador">
+                        <span class="avatar av-1" aria-hidden="true">Dev</span>
+                    </a>
+                    <p class="comunidad-info post-data">Publicado en <strong>c/DesarrolloWeb</strong> por <a
+                            href="#">@Dev</a> • <time>hace 2
+                            h</time> </p>
+                </div>
+                <h2 class="post-titulo"> <a href="publicacion.html">Primer post en Roddit</a> </h2>
+            </header>
 
-            <h2>Primer post en Roddit</h2>
-            <p>Bienvenidos</p>
+            <aside class="post-votos" aria-label="Votacion">
+
+                <button type="button" arial-label="Votar a favor">▲</button>
+                <span>12</span>
+                <button type="button" arial-label="Votar en contra">▼</button>
+
+            </aside>
+
+            <section class="post-contenido">
+                <p>Bienvenidos</p>
+            </section>
+
+            <footer class="post-footer"> <a href="publicacion.html" class="boton-comentarios">Comentar</a>
+                <button type="button">Compartir</button>
+                <button type="button">Guardar</button>
+
+            </footer>
         </article>
         <h3>Comentarios (3)</h3>
         <!-- Comentarios -->
@@ -65,38 +86,99 @@
 
 
             <!-- Comentario 1 -->
-            <article class="comentario">
-                <div class="publicacion-usuario">
-                    <a class="avatar-link" href="#" aria-label="Ver perfil del UsuarioAnonimo">
-                        <span class="avatar av-1" aria-hidden="true">UA</span>
-                    </a>
-                    <p class="autor-comentario"><strong>@UsuarioAnonimo</strong> hace 2 horas</p>
-                </div>
+            <article class="post">
+                <header class="post-header">
+                    <div class="publicacion-usuario">
+                        <a class="avatar-link" href="#" aria-label="Ver perfil de Desarrollador">
+                            <span class="avatar av-1" aria-hidden="true">RF</span>
+                        </a>
+                        <p class="comunidad-info post-data">Publicado en <strong>c/DesarrolloWeb</strong> por <a
+                                href="#">@Rafa</a> • <time>hace 8
+                                m</time> </p>
+                    </div>
+                </header>
 
-                <p class="comentario-contenido">grax</p>
+                <aside class="post-votos" aria-label="Votacion">
+
+                    <button type="button" arial-label="Votar a favor">▲</button>
+                    <span>3</span>
+                    <button type="button" arial-label="Votar en contra">▼</button>
+
+                </aside>
+
+                <section class="post-contenido">
+                    <p>Aguante MIPS</p>
+                </section>
+
+                <footer class="post-footer"> <a href="publicacion.html" class="boton-comentarios">Comentar</a>
+                    <button type="button">Compartir</button>
+                    <button type="button">Guardar</button>
+
+                </footer>
             </article>
 
             <!-- Comentario 2 -->
-            <article class="comentario">
-                <div class="publicacion-usuario">
-                    <a class="avatar-link" href="#" aria-label="Ver perfil del UsuarioAnonimo">
-                        <span class="avatar av-1" aria-hidden="true">UA</span>
-                    </a>
-                    <p class="autor-comentario"><strong>@UsuarioAnonimo</strong> hace 1 hora</p>
-                </div>
+            <article class="post">
+                <header class="post-header">
+                    <div class="publicacion-usuario">
+                        <a class="avatar-link" href="#" aria-label="Ver perfil de Desarrollador">
+                            <span class="avatar av-1" aria-hidden="true">JP</span>
+                        </a>
+                        <p class="comunidad-info post-data">Publicado en <strong>c/DesarrolloWeb</strong> por <a
+                                href="#">@Juanpi</a> • <time>hace 7
+                                h</time> </p>
+                    </div>
+                </header>
 
-                <p class="comentario-contenido">AAA</p>
+                <aside class="post-votos" aria-label="Votacion">
+
+                    <button type="button" arial-label="Votar a favor">▲</button>
+                    <span>18</span>
+                    <button type="button" arial-label="Votar en contra">▼</button>
+
+                </aside>
+
+                <section class="post-contenido">
+                    <p>front end > back end</p>
+                </section>
+
+                <footer class="post-footer"> <a href="publicacion.html" class="boton-comentarios">Comentar</a>
+                    <button type="button">Compartir</button>
+                    <button type="button">Guardar</button>
+
+                </footer>
             </article>
 
             <!-- Comentario 3 -->
-            <article class="comentario">
-                 <div class="publicacion-usuario">
-                    <a class="avatar-link" href="#" aria-label="Ver perfil del UsuarioAnonimo">
-                        <span class="avatar av-1" aria-hidden="true">UA</span>
-                    </a>
-                    <p class="autor-comentario"><strong>@UsuarioAnonimo</strong> hace 1 hora</p>
-                </div>
-                <p class="comentario-contenido">HOLA</p>
+            <article class="post">
+                <header class="post-header">
+                    <div class="publicacion-usuario">
+                        <a class="avatar-link" href="#" aria-label="Ver perfil de Desarrollador">
+                            <span class="avatar av-1" aria-hidden="true">UA</span>
+                        </a>
+                        <p class="comunidad-info post-data">Publicado en <strong>c/DesarrolloWeb</strong> por <a
+                                href="#">@UsuarioAnonimo</a> • <time>hace 1
+                                h</time> </p>
+                    </div>
+                </header>
+
+                <aside class="post-votos" aria-label="Votacion">
+
+                    <button type="button" arial-label="Votar a favor">▲</button>
+                    <span>66</span>
+                    <button type="button" arial-label="Votar en contra">▼</button>
+
+                </aside>
+
+                <section class="post-contenido">
+                    <p>papas fritas</p>
+                </section>
+
+                <footer class="post-footer"> <a href="publicacion.html" class="boton-comentarios">Comentar</a>
+                    <button type="button">Compartir</button>
+                    <button type="button">Guardar</button>
+
+                </footer>
             </article>
         </section>
     </main>

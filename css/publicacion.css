@@ -37,6 +37,11 @@ main {
     margin-bottom: 1.5rem;
     color: #1a1a1b;
 }
+.seccion-comentarios{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
 .comentario {
     border-bottom: 2px solid #dae0e6;
@@ -64,4 +69,9 @@ main {
 .publicacion-usuario{
     display: flex; 
     gap: 1rem;
+}
+
+.seccion-comentarios .post {
+    border: 2px   solid rgba(0, 128, 0, 0.336);
+    
 }

@@ -17,6 +17,12 @@ main {
 
 /* TARJETA LATERAL y LOS POSTS */
 
+.publicacion-usuario{
+    display: flex; 
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 5px;
+}
 .tarjeta-lateral {
     background-color: var(--surface);
     padding: 1.5rem;
