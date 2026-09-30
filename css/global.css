@@ -41,7 +41,7 @@ footer {
 
 /* Investigue como poner modo oscuro sin javascript y esto detecta la configuracion de windows (se me quemaban los ojos) */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     body {
         background-color: #1a1a1b;
         color: #d7dadc;
@@ -63,4 +63,4 @@ footer {
         color: #dae0e6;
     }
 
-}
+} */
