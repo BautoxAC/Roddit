@@ -15,48 +15,150 @@ main {
     gap: 1.5rem;
 }
 
-/* Estilo de cada publicación (Tarjeta) */
-.post, .tarjeta-lateral {
-    background-color: white;
+/* TARJETA LATERAL y LOS POSTS */
+
+.tarjeta-lateral {
+    background-color: var(--surface);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50rem;
 }
 
-.comunidad-info {
+.post {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-areas: "votos header" "votos contenido" "votos footer";
+    gap: 0.5rem 1rem;
+    background-color: var(--surface);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-left: 6px solid green;
+    
+}
+
+.post-titulo,
+.post-contenido p {
+
+    overflow-wrap: anywhere;
+    word-break: break-all;
+
+}
+
+.post-votos {
+    grid-area: votos;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    height: 80px;
+}
+
+.post-votos button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #787c7e;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.post-votos button:hover {
+    background-color: #e2e7ec;
+    color: var(--warm);
+}
+
+.votos-cantidad {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 4px 0;
+}
+
+.post-header {
+    grid-area: header;
+}
+
+.post-data {
     font-size: 0.85rem;
     color: #787c7e;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.3rem 0;
+    overflow-wrap: break-word;
 }
 
-.post h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
+.post-data a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.post p {
-    margin-bottom: 1.2rem;
+.post-data a:hover {
+    text-decoration: underline;
+}
+
+.post-titulo {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.post-titulo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-titulo a:hover {
+    text-decoration: underline;
+}
+
+.post-contenido {
+    grid-area: contenido;
+    overflow-wrap: break-word;
+}
+
+.post-contenido p {
+    margin: 0;
     line-height: 1.5;
 }
 
-/* Boton de comentarios */
+.post-footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.post-footer button,
 .boton-comentarios {
     background-color: #e2e7ec;
     color: #1a1a1b;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 4px;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 89px;
     font-size: 0.85rem;
     font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+.post-footer button:hover,
 .boton-comentarios:hover {
     background-color: #d3d6da;
 }
 
 /* Estilos de la barra lateral */
+
+.tarjeta-lateral {
+
+    width: 20rem;
+
+}
+
 .tarjeta-lateral h3 {
-    color: #ff4500;
+    color: var(--accent-dark);
     margin-bottom: 1rem;
     border-bottom: 1px solid #eee;
     padding-bottom: 0.5rem;

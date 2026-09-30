@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de @UsuarioRoddit - Roddit</title>
+    <title>Perfil de @Dev - Roddit</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
+
 <body>
 
-      <!-- ===== ENCABEZADO ===== -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="Roddit, ir al inicio">
-        <span class="logo-icon" aria-hidden="true">R</span>
-        <span>roddit</span>
-      </a>
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="logo" href="index.html" aria-label="Roddit, ir al inicio">
+                <span class="logo-icon" aria-hidden="true">R</span>
+                <span>roddit</span>
+            </a>
 
-      <nav class="main-nav" aria-label="Principal">
-        <ul>
-          <li><a href="index.html" aria-current="page">Inicio</a></li>
-          <li><a href="perfil.html">Perfil</a></li>
-        </ul>
-      </nav>
+            <nav class="main-nav" aria-label="Principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="perfil.html" aria-current="page">Perfil</a></li>
+                </ul>
+            </nav>
 
-      <div class="search" role="search">
-        <input type="search" id="buscar" name="q" placeholder="Buscar en Roddit">
-      </div>
+            <div class="search" role="search">
+                <input type="search" id="buscar" name="q" placeholder="Buscar en Roddit">
+            </div>
 
-      <div class="header-actions">
-        <button type="button" class="btn-create">+ Crear</button>
-        <button type="button" class="icon-btn" aria-label="Notificaciones">
-           <img src="./Utils/campana.png" alt="notificaciones">
-        </button>
-        <a class="avatar-link" href="perfil.html" aria-label="Ver mi perfil (PehuenDev)">
-          <span class="avatar av-1" aria-hidden="true">Dev</span>
-        </a>
-      </div>
-    </div>
+            <div class="header-actions">
+                <button type="button" class="btn-create">+ Crear</button>
+                <button type="button" class="icon-btn" aria-label="Notificaciones">
+                    <img src="./Utils/campana.png" alt="notificaciones">
+                </button>
+                <a class="avatar-link" href="perfil.html" aria-label="Ver mi perfil (PehuenDev)">
+                    <span class="avatar av-1" aria-hidden="true">Dev</span>
+                </a>
+            </div>
+        </div>
     </header>
 
     <!-- CONTENIDO CENTRAL DIVIDIDO EN DOS COLUMNAS -->
-     
+
     <main>
-        
+
         <!-- COLUMNA IZQUIERDA: DATOS DEL PERFIL -->
         <section id="perfil-principal">
-            
+
             <!-- Tarjeta de Presentacion -->
             <article class="tarjeta">
 
                 <span class="avatarPerfil">Dev</span>
                 <h2>Dev</h2>
-                <p>@UsuarioRoddit</p>
+                <p>@Dev</p>
                 <p>Estudiante de Informatica</p>
 
             </article>
@@ -63,12 +65,24 @@
             <!-- Estadisticas -->
 
             <article class="tarjeta">
-                <h3>Mis Estadísticas</h3>
+                <h3>Mis estadisticas</h3>
                 <dl class="estadisticas">
-                    <h4><dt>Karma Total</dt><dd>100</dd></h4>
-                    <h4><dt>Publicaciones</dt><dd>310</dd></h4>
-                    <h4><dt>Comentarios</dt><dd>100</dd></h4>
-                    <h4><dt>Dias en Roddit</dt><dd>3</dd></h4>
+                    <h4>
+                        <dt>Karma Total</dt>
+                        <dd>100</dd>
+                    </h4>
+                    <h4>
+                        <dt>Publicaciones</dt>
+                        <dd>310</dd>
+                    </h4>
+                    <h4>
+                        <dt>Comentarios</dt>
+                        <dd>100</dd>
+                    </h4>
+                    <h4>
+                        <dt>Dias en Roddit</dt>
+                        <dd>3</dd>
+                    </h4>
                 </dl>
             </article>
 
@@ -77,9 +91,9 @@
             <article class="tarjeta">
                 <h2>Datos de la cuenta</h2>
                 <dl class="lista-datos">
-                
+
                     <dt>Nombre de usuario</dt>
-                    <dd>u/Dev</dd>
+                    <dd>Dev</dd>
 
                     <dt>Miembro desde</dt>
                     <dd>7 de agosto de 2025</dd>
@@ -132,7 +146,7 @@
 
             <article class="tarjeta">
                 <h2>Publicaciones Recientes</h2>
-                
+
 
                 <ul class="mini-posts">
 
@@ -140,18 +154,21 @@
 
                         <h3 class="mini-post">
                             <a class="mini-titulo" href="publicacion.html">
-                            Primera publicacion
+                                Primera publicacion
                             </a>
                             <span class="info-publicacion">r/Programacion - Hace 3 horas - 3 Comentarios</span>
                         </h3>
-                        
+
+                    </li>
+
+                    <li>
+
                         <h3 class="mini-post">
                             <a class="mini-titulo" href="publicacion.html">
-                            Otra publicacion
+                                Otra publicacion
                             </a>
                             <span class="info-publicacion">r/Programacion - Hace 3 horas - 3 Comentarios</span>
                         </h3>
-                        
 
                     </li>
 
@@ -171,7 +188,7 @@
                     <li>Ayudante del mes</li>
                 </ul>
             </section>
-            
+
             <section class="tarjeta">
                 <h3>Mis Comunidades</h3>
                 <ul class="lista-tarjetas">
@@ -186,19 +203,20 @@
     </main>
 
     <!-- ===== PIE DE PÁGINA ===== -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2026 Roddit. Proyecto académico – Facultad de Informática, UNCo.</p>
-      <nav aria-label="Enlaces legales">
-        <ul>
-          <li><a href="#">Reglas</a></li>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Acuerdo de usuario</a></li>
-          <li><a href="#">Accesibilidad</a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 Roddit. Proyecto académico – Facultad de Informática, UNCo.</p>
+            <nav aria-label="Enlaces legales">
+                <ul>
+                    <li><a href="#">Reglas</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Acuerdo de usuario</a></li>
+                    <li><a href="#">Accesibilidad</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 
 </body>
+
 </html>
