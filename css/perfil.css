@@ -26,7 +26,7 @@ main {
 }
 
 /* Estilo del "Avatar" */
-.avatar {
+.avatarPerfil {
     display: block; /* Para que tome ancho y alto */
     width: 60px;
     height: 60px;
