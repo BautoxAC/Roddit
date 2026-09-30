@@ -83,10 +83,27 @@ th {
   margin-bottom: 0;
   padding: 4px 12px;
   background: var(--muted);
-  color: white;
+  color: var(--accent-soft);
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: bold;
+}
+
+/* DATOS DE CUENTA */
+
+.lista-datos {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 10px 16px;
+  margin: 0;
+}
+
+.lista-datos dt {
+  font-weight: bold;
+}
+
+.lista-datos dd {
+  margin: 0;
 }
 
 /* ESTADISTICAS */
