@@ -21,7 +21,7 @@ main {
 }
 
 .tarjeta h2, .tarjeta h3 {
-    color: #913412;
+    color: var(--ink);
     margin-bottom: 1rem;
 }
 
@@ -82,11 +82,40 @@ th {
 .lista-tarjetas li {
   margin-bottom: 0;
   padding: 4px 12px;
-  background: black;
+  background: var(--muted);
   color: white;
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: bold;
+}
+
+/* ESTADISTICAS */
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.estadisticas h4 {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 12px;
+  background: var(--surface-alt);
+  border-radius: 8px;
+}
+
+.estadisticas dt {
+  color: var(--muted);
+}
+
+.estadisticas dd {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding-bottom: 10%;
 }
 
 /* BOTON DE EDITAR  */
