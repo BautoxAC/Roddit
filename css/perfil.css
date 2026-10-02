@@ -83,7 +83,7 @@ th {
   margin-bottom: 0;
   padding: 4px 12px;
   background: var(--mutedado);
-  color: var(--acento-soft);
+  color: var(--acento-suave);
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: bold;
@@ -153,7 +153,7 @@ th {
     display: grid;
     gap: 10px;
     padding: 1px 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--linea);
   
 }
 
