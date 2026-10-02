@@ -24,7 +24,7 @@ main {
     margin-bottom: 5px;
 }
 .tarjeta-lateral {
-    background-color: var(--surface);
+    background-color: var(--superficie);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,7 @@ main {
     grid-template-columns: 48px 1fr;
     grid-template-areas: "votos header" "votos contenido" "votos footer";
     gap: 0.5rem 1rem;
-    background-color: var(--surface);
+    background-color: var(--superficie);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -76,7 +76,7 @@ main {
 
 .post-votos button:hover {
     background-color: #e2e7ec;
-    color: var(--warm);
+    color: var(--calido);
 }
 
 .votos-cantidad {
@@ -164,7 +164,7 @@ main {
 }
 
 .tarjeta-lateral h3 {
-    color: var(--accent-dark);
+    color: var(--acento-oscuro);
     margin-bottom: 1rem;
     border-bottom: 1px solid #eee;
     padding-bottom: 0.5rem;

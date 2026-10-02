@@ -1,13 +1,13 @@
 
 /* ---------- Footer ---------- */
-.site-footer {
+.sitio-footer {
   padding: 20px 16px;
-  background: var(--header-bg);
+  background: var(--header-fondo);
   color: #d5e6e3;
   font-size: 0.9rem;
 }
 
-.footer-inner {
+.footer-dentro {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -17,11 +17,11 @@
   margin: 0 auto;
 }
 
-.footer-inner p {
+.footer-dentro p {
   margin: 0;
 }
 
-.footer-inner ul {
+.footer-dentro ul {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -30,10 +30,10 @@
   list-style: none;
 }
 
-.site-footer a {
+.sitio-footer a {
   color: #ffffff;
 }
 
-.site-footer :focus-visible {
-  outline-color: var(--warm);
+.sitio-footer :focus-visible {
+  outline-color: var(--calido);
 }

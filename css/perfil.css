@@ -21,7 +21,7 @@ main {
 }
 
 .tarjeta h2, .tarjeta h3 {
-    color: var(--ink);
+    color: var(--negro);
     margin-bottom: 1rem;
 }
 
@@ -82,8 +82,8 @@ th {
 .lista-tarjetas li {
   margin-bottom: 0;
   padding: 4px 12px;
-  background: var(--muted);
-  color: var(--accent-soft);
+  background: var(--mutedado);
+  color: var(--acento-soft);
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: bold;
@@ -119,12 +119,12 @@ th {
   display: flex;
   flex-direction: column-reverse;
   padding: 12px;
-  background: var(--surface-alt);
+  background: var(--superficie-alt);
   border-radius: 8px;
 }
 
 .estadisticas dt {
-  color: var(--muted);
+  color: var(--mutedado);
 }
 
 .estadisticas dd {
@@ -163,7 +163,7 @@ th {
 
 .mini-posts .info-publicacion {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--mutedado);
 }
 
 .mini-posts li:last-child {
@@ -174,7 +174,7 @@ th {
 /* BOTON DE EDITAR  */
 .boton-editar {
     display: block;
-    background-color: var(--accent-dark);
+    background-color: var(--acento-oscuro);
     color: white;
     text-align: center;
     padding: 0.8rem;
@@ -184,5 +184,5 @@ th {
 }
 
 .boton-editar:hover {
-    background-color: var(--ink);
+    background-color: var(--negro);
 }

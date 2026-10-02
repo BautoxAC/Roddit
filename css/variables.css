@@ -1,15 +1,15 @@
 /* ---------- Variables y reset ---------- */
 :root {
-  --bg: #edf0ea;
-  --surface: #ffffff;
-  --surface-alt: #f5f7f4;
-  --ink: #17211f;
-  --muted: #566461;
-  --line: #d5dbd5;
-  --accent: #0b6e6e;
-  --accent-dark: #094f4f;
-  --accent-soft: #dcefec;
-  --header-bg: #0e2f2f;
-  --warm: #8f9ce6;
+  --fondo: #edf0ea;
+  --superficie: #ffffff;
+  --superficie-alt: #f5f7f4;
+  --negro: #17211f;
+  --mutedado: #566461;
+  --linea: #d5dbd5;
+  --acento: #0b6e6e;
+  --acento-oscuro: #094f4f;
+  --acento-suave: #dcefec;
+  --header-fondo: #0e2f2f;
+  --calido: #8f9ce6;
   --focus: #1f4fd8;
 }

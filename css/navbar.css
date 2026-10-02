@@ -1,11 +1,11 @@
 
 /* ---------- Encabezado / navbar ---------- */
-.site-header {
-  background: var(--header-bg);
+.sitio-header {
+  background: var(--header-fondo);
   color: #ffffff;
 }
 
-.header-inner {
+.header-dentro {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 16px;
@@ -13,7 +13,7 @@
   align-items: center;
   gap: 16px;
 }
-.header-inner  span{
+.header-dentro  span{
      font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -29,12 +29,12 @@
   letter-spacing: -1px;
 }
 
-.logo-icon {
-  width: 34px;
+.logo-icono {
+   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--warm);
-  color: var(--header-bg);
+  background: var(--calido);
+  color: var(--header-fondo);
   display: grid;
   place-items: center;
   font-size: 1.2rem;
@@ -66,13 +66,13 @@
   font-weight: bold;
 }
 
-.search {
+.busqueda {
   flex: 1;
   max-width: 520px;
   margin: 0 auto;
 }
 
-.search input {
+.busqueda input {
   width: 100%;
   padding: 9px 18px;
   border: 2px solid transparent;
@@ -82,13 +82,13 @@
   font-size: 1rem;
 }
 
-.search input::placeholder {
+.busqueda input::placeholder {
   color: #b9d0cd;
 }
 
-.search input:focus {
+.busqueda input:focus {
   background: #ffffff;
-  color: var(--ink);
+  color: var(--negro);
 }
 
 .header-actions {
@@ -97,18 +97,18 @@
   gap: 10px;
 }
 
-.btn-create {
+.boton-create {
   padding: 8px 16px;
   border: 0;
   border-radius: 999px;
-  background: var(--warm);
-  color: var(--ink);
+  background: var(--calido);
+  color: var(--negro);
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
 }
 
-.icon-btn {
+.icono-boton {
   display: grid;
   place-items: center;
   width: 38px;
@@ -120,22 +120,22 @@
   cursor: pointer;
 }
 
-.icon-btn img {
+.icono-boton img {
   width: 45%;
   height: 45%;
 }
 
-.icon-btn:hover {
+.icono-boton:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-.icon-btn svg {
+.icono-boton svg {
   width: 22px;
   height: 22px;
   fill: currentColor;
 }
 
-.avatar-link {
+.avatar-lnegro {
   display: inline-flex;
   border-radius: 50%;
   text-decoration: none;
@@ -149,7 +149,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--av, var(--accent));
+  background: var(--av, var(--acento));
   color: #ffffff;
   font-size: 0.8rem;
   font-weight: bold;
