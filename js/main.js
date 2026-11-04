@@ -9,3 +9,7 @@ contenedorHeader.innerHTML = crearHeader(paginaActual);
 
 // Insertamos el footer
 contenedorFooter.innerHTML = crearFooter();
+
+// Insertamos las publicaciones
+renderizarPublicaciones();
+renderizarDetallePublicacion();
