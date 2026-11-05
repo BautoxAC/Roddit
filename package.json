@@ -1,0 +1,26 @@
+{
+  "name": "roddit",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000R\u0000o\u0000d\u0000d\u0000i\u0000t\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --env-file=.env --watch src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BautoxAC/Roddit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BautoxAC/Roddit/issues"
+  },
+  "homepage": "https://github.com/BautoxAC/Roddit#readme",
+  "dependencies": {
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16
+    container_name: roddit-db
+    environment:
+      POSTGRES_USER: roddit
+      POSTGRES_PASSWORD: roddit_pass
+      POSTGRES_DB: roddit
+    ports:
+      - "5432:5432"        # si ya tenes un Postgres instalado en tu PC, usa "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U roddit -d roddit"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
