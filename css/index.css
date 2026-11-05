@@ -174,3 +174,19 @@ main {
     margin-left: 1.5rem;
     line-height: 1.6;
 }
+
+.contenedor-cargar-mas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#boton-cargar-mas {
+    background-color: var(--superficie);
+    color: #1a1a1b;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 89px;
+}

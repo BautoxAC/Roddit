@@ -1,3 +1,8 @@
+const TAMANIO_PAGINA = 5;
+
+let numeroPaginaActual = 0;
+let cargandoPublicaciones = false;
+
 
 function crearPublicacion(publicacion) {
 
@@ -240,7 +245,7 @@ function renderizarComentarios(publicacion) {
         .join("");
 }
 
-function renderizarPublicaciones() {
+/* function renderizarPublicaciones() {
 
     const feed = document.querySelector(".feed-publicaciones");
 
@@ -256,8 +261,72 @@ function renderizarPublicaciones() {
 
     });
 
-}
+} */
 
+async function cargarMasPublicaciones() {
+    const feed = document.querySelector(".feed-publicaciones");
+    const boton = document.querySelector("#boton-cargar-mas");
+    const mensaje = document.querySelector("#mensaje-carga");
+
+    // Si no estamos en el inicio, no hacemos nada.
+    if (!feed || !boton) {
+        return;
+    }
+
+    // Evitamos que se ejecuten dos cargas al mismo tiempo.
+    if (cargandoPublicaciones) {
+        return;
+    }
+
+    cargandoPublicaciones = true;
+    boton.disabled = true;
+    boton.textContent = "Cargando...";
+
+    try {
+        const respuesta = await obtenerPublicaciones(
+            numeroPaginaActual,
+            TAMANIO_PAGINA
+        );
+
+        respuesta.items.forEach(publicacion => {
+            feed.insertAdjacentHTML(
+                "beforeend",
+                crearPublicacion(publicacion)
+            );
+        });
+
+        // Avanzamos de pagina si quedan publicaciones
+        
+        if (respuesta.items.length > 0) {
+            numeroPaginaActual++;
+        }
+
+        // Si ya no hay publicaciones se oculta
+        boton.hidden = !respuesta.hayMas;
+
+        if (mensaje) {
+            mensaje.textContent = respuesta.hayMas
+                ? ""
+                : "No hay más publicaciones.";
+        }
+    } catch (error) {
+        console.error("Error al cargar publicaciones:", error);
+
+        if (mensaje) {
+            mensaje.textContent =
+                "No se pudieron cargar las publicaciones. Intentá nuevamente.";
+        }
+
+        boton.hidden = false;
+    } finally {
+        cargandoPublicaciones = false;
+
+        if (!boton.hidden) {
+            boton.disabled = false;
+            boton.textContent = "Cargar más publicaciones";
+        }
+    }
+}
 
 function renderizarDetallePublicacion() {
     const contenedorPublicacion = document.querySelector(
@@ -312,4 +381,16 @@ function renderizarDetallePublicacion() {
         cantidad === 1
             ? "Comentarios (1)"
             : `Comentarios (${cantidad})`;
+}
+
+async function obtenerPublicaciones(pagina, limite) {
+    const inicio = pagina * limite;
+    const fin = inicio + limite;
+
+    const publicaciones = window.publicaciones.slice(inicio, fin);
+
+    return {
+        items: publicaciones,
+        hayMas: fin < window.publicaciones.length
+    };
 }

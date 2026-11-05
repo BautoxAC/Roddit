@@ -1,8 +1,7 @@
 const contenedorHeader = document.querySelector("#header-contenedor");
-
 const contenedorFooter = document.querySelector("#footer-contenedor");
-
 const paginaActual = document.body.dataset.pagina;
+const botonCargarMas = document.querySelector("#boton-cargar-mas");
 
 // Insertamos el header
 contenedorHeader.innerHTML = crearHeader(paginaActual);
@@ -11,5 +10,11 @@ contenedorHeader.innerHTML = crearHeader(paginaActual);
 contenedorFooter.innerHTML = crearFooter();
 
 // Insertamos las publicaciones
-renderizarPublicaciones();
+
+if (botonCargarMas) {
+    botonCargarMas.addEventListener("click", cargarMasPublicaciones);
+}
+
+cargarMasPublicaciones();
+
 renderizarDetallePublicacion();
