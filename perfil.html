@@ -13,7 +13,7 @@
    
 </head>
 
-<body>
+<body data-pagina="perfil">
 
     <!-- ===== ENCABEZADO ===== -->
     <header class="sitio-header" id="header-contenedor"></header>
@@ -26,63 +26,20 @@
         <section id="perfil-principal">
 
             <!-- Tarjeta de Presentacion -->
-            <article class="tarjeta">
-
-                <span class="avatarPerfil">Dev</span>
-                <h2>Dev</h2>
-                <p>@Dev</p>
-                <p>Estudiante de Informatica</p>
-
-            </article>
+            <article class="tarjeta" id="perfil-presentacion"></article>
 
             <!-- Estadisticas -->
 
             <article class="tarjeta">
                 <h3>Mis estadisticas</h3>
-                <dl class="estadisticas">
-                    <h4>
-                        <dt>Karma Total</dt>
-                        <dd>100</dd>
-                    </h4>
-                    <h4>
-                        <dt>Publicaciones</dt>
-                        <dd>310</dd>
-                    </h4>
-                    <h4>
-                        <dt>Comentarios</dt>
-                        <dd>100</dd>
-                    </h4>
-                    <h4>
-                        <dt>Dias en Roddit</dt>
-                        <dd>3</dd>
-                    </h4>
-                </dl>
+                <dl class="estadisticas" id="perfil-estadisticas"></dl>
             </article>
 
             <!-- Datos de la cuenta -->
 
             <article class="tarjeta">
                 <h2>Datos de la cuenta</h2>
-                <dl class="lista-datos">
-
-                    <dt>Nombre de usuario</dt>
-                    <dd>Dev</dd>
-
-                    <dt>Miembro desde</dt>
-                    <dd>7 de agosto de 2025</dd>
-
-                    <dt>Ubicacion</dt>
-                    <dd>Neuquen, Argentina</dd>
-
-                    <dt>Idioma</dt>
-                    <dd>Español (Argentina)</dd>
-
-                    <dt>Correo</dt>
-                    <dd>dev@gmail.com</dd>
-
-                    <dt>Estado</dt>
-                    <dd>Cuenta verificada</dd>
-                </dl>
+                <dl class="lista-datos" id="perfil-cuenta"></dl>
             </article>
 
 
@@ -98,20 +55,7 @@
                             <th>Karma</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>c/Programacion</td>
-                            <td>988</td>
-                            <td>8</td>
-                            <td>3.050</td>
-                        </tr>
-                        <tr>
-                            <td>c/DesarrolloWeb</td>
-                            <td>18</td>
-                            <td>8</td>
-                            <td>720</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="perfil-actividad"></tbody>
                 </table>
             </article>
 
@@ -121,31 +65,7 @@
                 <h2>Publicaciones Recientes</h2>
 
 
-                <ul class="mini-posts">
-
-                    <li>
-
-                        <h3 class="mini-post">
-                            <a class="mini-titulo" href="publicacion.html">
-                                Primera publicacion
-                            </a>
-                            <span class="info-publicacion">r/Programacion - Hace 3 horas - 3 Comentarios</span>
-                        </h3>
-
-                    </li>
-
-                    <li>
-
-                        <h3 class="mini-post">
-                            <a class="mini-titulo" href="publicacion.html">
-                                Otra publicacion
-                            </a>
-                            <span class="info-publicacion">r/Programacion - Hace 3 horas - 3 Comentarios</span>
-                        </h3>
-
-                    </li>
-
-                </ul>
+                <ul class="mini-posts" id="perfil-publicaciones"></ul>
 
 
             </article>
@@ -156,18 +76,12 @@
         <aside>
             <section class="tarjeta">
                 <h3>Mis Logros</h3>
-                <ul class="lista-tarjetas">
-                    <li>Cuenta verificada</li>
-                    <li>Ayudante del mes</li>
-                </ul>
+                <ul class="lista-tarjetas" id="perfil-logros"></ul>
             </section>
 
             <section class="tarjeta">
                 <h3>Mis Comunidades</h3>
-                <ul class="lista-tarjetas">
-                    <li>c/Programacion</li>
-                    <li>c/DesarrolloWeb</li>
-                </ul>
+                <ul class="lista-tarjetas" id="perfil-comunidades"></ul>
             </section>
 
             <a href="#" class="boton-editar">Editar perfil</a>
@@ -179,6 +93,9 @@
     <footer class="sitio-footer" id="footer-contenedor"></footer>
 
     <script src="js/componentes.js"></script>
+    <script src="js/publicaciones.js"></script>
+    <script src="js/usuarios.js"></script>
+    <script src="js/renderizarPerfil.js"></script>
     <script src="js/main.js"></script>
 
 </body>

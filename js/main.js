@@ -15,6 +15,16 @@ if (botonCargarMas) {
     botonCargarMas.addEventListener("click", cargarMasPublicaciones);
 }
 
-cargarMasPublicaciones();
+// Cada pagina ejecuta solo lo que le corresponde
 
-renderizarDetallePublicacion();
+if (document.querySelector(".feed-publicaciones")) {
+    cargarMasPublicaciones();
+}
+
+if (document.querySelector("#detalle-publicacion")) {
+    renderizarDetallePublicacion();
+}
+
+if (document.querySelector("#perfil-principal")) {
+    renderizarPerfil();
+}
