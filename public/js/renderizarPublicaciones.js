@@ -1,12 +1,12 @@
 const TAMANIO_PAGINA = 5;
 
-let numeroPaginaActual = 0;
+let publicacionesCargadas = 0;
 let cargandoPublicaciones = false;
 
 
 function crearPublicacion(publicacion) {
 
-    const cantidadComentarios = publicacion.comentarios.length;
+    const cantidadComentarios = publicacion.cantidadComentarios;
 
     return `
         <article class="post">
@@ -17,10 +17,10 @@ function crearPublicacion(publicacion) {
 
                     <a class="avatar-link"
                        href="perfil.html"
-                       aria-label="Ver perfil de ${publicacion.usuario}">
+                       aria-label="Ver perfil de ${escaparHtml(publicacion.usuario)}">
 
                         <span class="avatar av-1" aria-hidden="true">
-                            ${publicacion.avatar}
+                            ${escaparHtml(publicacion.avatar)}
                         </span>
 
                     </a>
@@ -28,13 +28,13 @@ function crearPublicacion(publicacion) {
                     <p class="comunidad-info post-data">
 
                         Publicado en
-                        <strong>c/${publicacion.comunidad}</strong>
+                        <strong>c/${escaparHtml(publicacion.comunidad)}</strong>
 
                         por
-                        <a href="perfil.html">@${publicacion.usuario}</a>
+                        <a href="perfil.html">@${escaparHtml(publicacion.usuario)}</a>
 
                         •
-                        <time>${publicacion.fecha}</time>
+                        <time datetime="${publicacion.creadaEn}">${tiempoRelativo(publicacion.creadaEn)}</time>
 
                     </p>
 
@@ -43,7 +43,7 @@ function crearPublicacion(publicacion) {
                 <h2 class="post-titulo">
 
                     <a href="publicacion.html?id=${publicacion.id}">
-                        ${publicacion.titulo}
+                        ${escaparHtml(publicacion.titulo)}
                     </a>
 
                 </h2>
@@ -68,7 +68,7 @@ function crearPublicacion(publicacion) {
 
             <section class="post-contenido">
 
-                <p>${publicacion.contenido}</p>
+                <p>${escaparHtml(publicacion.contenido)}</p>
 
             </section>
 
@@ -110,10 +110,10 @@ function crearComentario(comentario, comunidad) {
 
                     <a class="avatar-link"
                        href="perfil.html"
-                       aria-label="Ver perfil de ${comentario.usuario}">
+                       aria-label="Ver perfil de ${escaparHtml(comentario.usuario)}">
 
                         <span class="avatar av-1" aria-hidden="true">
-                            ${comentario.avatar}
+                            ${escaparHtml(comentario.avatar)}
                         </span>
 
                     </a>
@@ -121,13 +121,13 @@ function crearComentario(comentario, comunidad) {
                     <p class="comunidad-info post-data">
 
                         Comentario en
-                        <strong>c/${comunidad}</strong>
+                        <strong>c/${escaparHtml(comunidad)}</strong>
 
                         por
-                        <a href="perfil.html">@${comentario.usuario}</a>
+                        <a href="perfil.html">@${escaparHtml(comentario.usuario)}</a>
 
                         •
-                        <time>${comentario.fecha}</time>
+                        <time datetime="${comentario.creadaEn}">${tiempoRelativo(comentario.creadaEn)}</time>
 
                     </p>
 
@@ -153,7 +153,7 @@ function crearComentario(comentario, comunidad) {
 
             <section class="post-contenido">
 
-                <p>${comentario.contenido}</p>
+                <p>${escaparHtml(comentario.contenido)}</p>
 
             </section>
 
@@ -185,22 +185,22 @@ function crearPublicacionDetalle(publicacion) {
                 <div class="publicacion-usuario">
                     <a class="avatar-link" href="perfil.html">
                         <span class="avatar av-1">
-                            ${publicacion.usuario}
+                            ${escaparHtml(publicacion.usuario)}
                         </span>
                     </a>
 
                     <p class="comunidad-info post-data">
                         Publicado en
-                        <strong>c/${publicacion.comunidad}</strong>
+                        <strong>c/${escaparHtml(publicacion.comunidad)}</strong>
                         por
-                        <a href="perfil.html">@${publicacion.usuario}</a>
+                        <a href="perfil.html">@${escaparHtml(publicacion.usuario)}</a>
                         •
-                        <time>${publicacion.fecha}</time>
+                        <time datetime="${publicacion.creadaEn}">${tiempoRelativo(publicacion.creadaEn)}</time>
                     </p>
                 </div>
 
                 <h2 class="post-titulo">
-                    ${publicacion.titulo}
+                    ${escaparHtml(publicacion.titulo)}
                 </h2>
             </header>
 
@@ -217,7 +217,7 @@ function crearPublicacionDetalle(publicacion) {
             </aside>
 
             <section class="post-contenido">
-                <p>${publicacion.contenido}</p>
+                <p>${escaparHtml(publicacion.contenido)}</p>
             </section>
 
             <footer class="post-footer">
@@ -284,7 +284,7 @@ async function cargarMasPublicaciones() {
 
     try {
         const respuesta = await obtenerPublicaciones(
-            numeroPaginaActual,
+            publicacionesCargadas,
             TAMANIO_PAGINA
         );
 
@@ -295,11 +295,8 @@ async function cargarMasPublicaciones() {
             );
         });
 
-        // Avanzamos de pagina si quedan publicaciones
-        
-        if (respuesta.items.length > 0) {
-            numeroPaginaActual++;
-        }
+        // Avanzamos: la proxima pagina empieza despues de las que ya tenemos
+        publicacionesCargadas += respuesta.items.length;
 
         // Si ya no hay publicaciones se oculta
         boton.hidden = !respuesta.hayMas;
@@ -328,7 +325,7 @@ async function cargarMasPublicaciones() {
     }
 }
 
-function renderizarDetallePublicacion() {
+async function renderizarDetallePublicacion() {
     const contenedorPublicacion = document.querySelector(
         "#detalle-publicacion"
     );
@@ -348,49 +345,68 @@ function renderizarDetallePublicacion() {
 
     // Obtenemos el ID que viene en la URL.
     const parametros = new URLSearchParams(window.location.search);
-    const id = Number(parametros.get("id"));
+    const id = parametros.get("id");
 
-    // Buscamos la publicación que tenga ese ID.
-    const publicacion = window.publicaciones.find(
-        publicacion => publicacion.id === id
-    );
+    try {
+        const respuesta = await fetch(
+            `/api/publicaciones/${encodeURIComponent(id)}`
+        );
 
-    // Si el ID no existe, mostramos un mensaje.
-    if (!publicacion) {
+        // Si el ID no existe (404) o no es valido (400), mostramos un mensaje.
+        if (respuesta.status === 404 || respuesta.status === 400) {
+            contenedorPublicacion.innerHTML = `
+                <p>No se encontró la publicación.</p>
+                <a href="index.html">Volver al inicio</a>
+            `;
+
+            contenedorComentarios.innerHTML = "";
+            tituloComentarios.textContent = "Comentarios";
+
+            return;
+        }
+
+        if (!respuesta.ok) {
+            throw new Error(`Error ${respuesta.status} al pedir la publicación`);
+        }
+
+        const publicacion = await respuesta.json();
+
+        // Insertamos la publicación seleccionada.
+        contenedorPublicacion.innerHTML = crearPublicacionDetalle(publicacion);
+
+        // Insertamos solamente sus comentarios.
+        contenedorComentarios.innerHTML = renderizarComentarios(publicacion);
+
+        // Actualizamos el título con la cantidad de comentarios.
+        const cantidad = publicacion.comentarios.length;
+
+        tituloComentarios.textContent =
+            cantidad === 1
+                ? "Comentarios (1)"
+                : `Comentarios (${cantidad})`;
+    } catch (error) {
+        console.error("Error al cargar la publicación:", error);
+
         contenedorPublicacion.innerHTML = `
-            <p>No se encontró la publicación.</p>
+            <p>No se pudo cargar la publicación. Intentá nuevamente.</p>
             <a href="index.html">Volver al inicio</a>
         `;
 
         contenedorComentarios.innerHTML = "";
         tituloComentarios.textContent = "Comentarios";
-
-        return;
     }
-
-    // Insertamos la publicación seleccionada.
-    contenedorPublicacion.innerHTML = crearPublicacionDetalle(publicacion);
-
-    // Insertamos solamente sus comentarios.
-    contenedorComentarios.innerHTML = renderizarComentarios(publicacion);
-
-    // Actualizamos el título con la cantidad de comentarios.
-    const cantidad = publicacion.comentarios.length;
-
-    tituloComentarios.textContent =
-        cantidad === 1
-            ? "Comentarios (1)"
-            : `Comentarios (${cantidad})`;
 }
 
-async function obtenerPublicaciones(pagina, limite) {
-    const inicio = pagina * limite;
-    const fin = inicio + limite;
+// Pide una pagina de publicaciones a la API.
+// La API responde { items, total, hayMas }.
+async function obtenerPublicaciones(desde, cantidad) {
+    const respuesta = await fetch(
+        `/api/publicaciones?cantidad=${cantidad}&from=${desde}`
+    );
 
-    const publicaciones = window.publicaciones.slice(inicio, fin);
+    if (!respuesta.ok) {
+        throw new Error(`Error ${respuesta.status} al pedir publicaciones`);
+    }
 
-    return {
-        items: publicaciones,
-        hayMas: fin < window.publicaciones.length
-    };
+    return respuesta.json();
 }

@@ -41,15 +41,15 @@ function crearActividadPorComunidad(actividad) {
 }
 
 function crearPublicacionReciente(publicacion) {
-    const cantidad = publicacion.comentarios.length;
+    const cantidad = publicacion.cantidadComentarios;
 
     return `
         <li>
             <h3 class="mini-post">
                 <a class="mini-titulo" href="publicacion.html?id=${publicacion.id}">
-                    ${publicacion.titulo}
+                    ${escaparHtml(publicacion.titulo)}
                 </a>
-                <span class="info-publicacion">c/${publicacion.comunidad} - ${publicacion.fecha} - ${cantidad} ${cantidad === 1 ? "Comentario" : "Comentarios"}</span>
+                <span class="info-publicacion">c/${escaparHtml(publicacion.comunidad)} - ${tiempoRelativo(publicacion.creadaEn)} - ${cantidad} ${cantidad === 1 ? "Comentario" : "Comentarios"}</span>
             </h3>
         </li>
     `;
@@ -59,7 +59,7 @@ function crearItemsLista(items, prefijo = "") {
     return items.map(item => `<li>${prefijo}${item}</li>`).join("");
 }
 
-function renderizarPerfil() {
+async function renderizarPerfil() {
     const usuario = window.usuario;
 
     const presentacion = document.querySelector("#perfil-presentacion");
@@ -79,17 +79,26 @@ function renderizarPerfil() {
     estadisticas.innerHTML = crearEstadisticas(usuario.estadisticas);
     cuenta.innerHTML = crearDatosCuenta(usuario.cuenta);
     actividad.innerHTML = crearActividadPorComunidad(usuario.actividadPorComunidad);
-
-    // Publicaciones recientes: las que escribio este usuario,
-    // tomadas de publicaciones.js (asi el link lleva a publicacion.html?id=...)
-    const publicacionesDelUsuario = window.publicaciones.filter(
-        publicacion => publicacion.usuario === usuario.usuario
-    );
-
-    recientes.innerHTML = publicacionesDelUsuario.length > 0
-        ? publicacionesDelUsuario.map(crearPublicacionReciente).join("")
-        : "<li>Todavia no hay publicaciones.</li>";
-
     logros.innerHTML = crearItemsLista(usuario.logros);
     comunidades.innerHTML = crearItemsLista(usuario.comunidades, "c/");
+
+    // Publicaciones recientes: se piden a la API filtrando por autor
+    try {
+        const respuesta = await fetch(
+            `/api/publicaciones?usuario=${encodeURIComponent(usuario.usuario)}&cantidad=5`
+        );
+
+        if (!respuesta.ok) {
+            throw new Error(`Error ${respuesta.status} al pedir publicaciones`);
+        }
+
+        const { items } = await respuesta.json();
+
+        recientes.innerHTML = items.length > 0
+            ? items.map(crearPublicacionReciente).join("")
+            : "<li>Todavia no hay publicaciones.</li>";
+    } catch (error) {
+        console.error("Error al cargar publicaciones recientes:", error);
+        recientes.innerHTML = "<li>No se pudieron cargar las publicaciones.</li>";
+    }
 }
