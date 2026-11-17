@@ -1,24 +1,12 @@
 # Roddit
 
+## Para esta guia se utilizo IA para el formato , y mejorar la explicacion. El contenido de la misma fue escrito a mano##
+
 Foro simple con publicaciones, comentarios y perfil de usuario. Trabajo Práctico Obligatorio 2 y 3 de **Servidores Web**.
 
 - **Front:** HTML, CSS y JavaScript puro (sin frameworks).
 - **Back:** Node.js + Express, con una API REST bajo `/api/publicaciones`.
 - **Base de datos:** PostgreSQL, que corre dentro de un contenedor de Docker.
-
-## Contenido
-
-1. [Requisitos](#1-requisitos)
-2. [Puesta en marcha](#2-puesta-en-marcha)
-3. [Qué probar en la web](#3-qué-probar-en-la-web)
-4. [Probar la API](#4-probar-la-api)
-5. [Probar la base de datos directamente](#5-probar-la-base-de-datos-directamente)
-6. [Detener, reiniciar y resetear](#6-detener-reiniciar-y-resetear)
-7. [Problemas frecuentes](#7-problemas-frecuentes)
-8. [Estructura del proyecto](#8-estructura-del-proyecto)
-9. [Cómo funciona](#9-cómo-funciona)
-
----
 
 ## 1. Requisitos
 
@@ -30,13 +18,7 @@ Necesitás tener instalado:
 | **Node.js** | **20.6 o superior** | `node --version` |
 | **Docker Desktop** (incluye Docker Compose) | reciente | `docker --version` y `docker compose version` |
 
-> En Windows, Docker Desktop tiene que estar **abierto y corriendo** (suele pedir activar WSL2 la primera vez).
-> No hace falta instalar PostgreSQL: corre dentro de Docker.
-
-## 2. Puesta en marcha
-
-Todos los comandos se ejecutan desde la carpeta del proyecto. En Windows, usá **Git Bash** (viene con Git).
-
+### Paso a Paso para ejecutar el codigo
 ### Paso 1: clonar el repositorio
 
 ```bash
@@ -52,13 +34,13 @@ npm install
 
 ### Paso 3: crear el archivo de variables de entorno
 
-El archivo `.env` no se sube a GitHub, así que hay que crearlo a partir del ejemplo:
+El archivo `.env` no se sube a GitHub, así que hay que crearlo a partir del ejemplo, se puede crear ejecutando este comando:
 
 ```bash
 cp .env.example .env
 ```
 
-*(En Windows CMD: `copy .env.example .env`.)* No hace falta editarlo: ya trae los valores que coinciden con el `docker-compose.yml`.
+*(En Windows CMD)* No hace falta editarlo: ya trae los valores que coinciden con el `docker-compose.yml`.
 
 ### Paso 4: levantar la base de datos
 
@@ -66,7 +48,7 @@ cp .env.example .env
 docker compose up -d
 ```
 
-La primera vez descarga la imagen de PostgreSQL, así que puede tardar un poco. Comprobá que esté lista:
+La primera vez descarga la imagen de PostgreSQL, así que puede tardar un poco. Para comprobar que esté lista:
 
 ```bash
 docker compose ps
@@ -80,7 +62,7 @@ Al crearse por primera vez, la base ejecuta automáticamente `db/init.sql`, que 
 docker compose exec db psql -U roddit -d roddit -c "SELECT count(*) FROM publicaciones;"
 ```
 
-Tiene que mostrar `20`.
+Tiene que mostrar `20`, que son la cantidad de publicaciones creadas.
 
 ### Paso 5: iniciar el servidor
 
@@ -88,7 +70,7 @@ Tiene que mostrar `20`.
 npm run dev
 ```
 
-Tiene que aparecer `Servidor en http://localhost:3000`. El servidor se reinicia solo cuando guardás cambios en el código.
+Tiene que aparecer `Servidor en http://localhost:3000`.
 
 ### Paso 6: abrir la web
 
@@ -102,7 +84,6 @@ Entrá a **http://localhost:3000**. Si ves el feed con publicaciones, todo está
 | Detalle | `http://localhost:3000/publicacion.html?id=1` | Una publicación con sus comentarios. Con un id inexistente muestra "No se encontró la publicación". |
 | Perfil | `http://localhost:3000/perfil.html` | Datos del usuario y sus publicaciones recientes. |
 
-Para ver que la web **pide los datos a la API de a poco**, abrí las herramientas de desarrollo (`F12`), pestaña **Network**, y recargá. Vas a ver `publicaciones?cantidad=5&from=0`, y un pedido nuevo con `from=5`, `from=10`... por cada clic en "Cargar más".
 
 ## 4. Probar la API
 
@@ -114,206 +95,3 @@ Con el servidor andando, estos son los endpoints (todos devuelven JSON):
 | `GET` | `/api/publicaciones/:id` | Una publicación con sus comentarios | `200`, `400`, `404` |
 | `POST` | `/api/publicaciones` | Crea una publicación | `201`, `400` |
 | `PUT` | `/api/publicaciones/:id` | Edita título, comunidad y contenido | `200`, `400`, `404` |
-
-**Parámetros del listado** (todos opcionales):
-
-| Parámetro | Por defecto | Regla |
-|---|---|---|
-| `cantidad` | `10` | Entero entre 1 y 50 |
-| `from` | `0` | Entero mayor o igual a 0 (a partir de qué posición devolver) |
-| `usuario` | *(todos)* | Devuelve solo las publicaciones de ese autor |
-
-El listado responde `{ "items": [...], "total": 20, "hayMas": true }` y ordena de la más nueva a la más vieja.
-
-**Campos del `POST` y el `PUT`:**
-
-| Campo | Regla | `POST` | `PUT` |
-|---|---|---|---|
-| `titulo` | texto, hasta 200 caracteres | obligatorio | obligatorio |
-| `comunidad` | texto, hasta 50 caracteres | obligatorio | obligatorio |
-| `contenido` | texto, hasta 10000 caracteres | obligatorio | obligatorio |
-| `usuario` | nombre de un usuario existente (por ejemplo `Dev`, `Mati`, `Bauti`) | obligatorio | no se usa (el autor no cambia) |
-
-### Ejemplos con curl
-
-Usá **Git Bash**, macOS o Linux. En PowerShell, `curl` es otro comando: usá `curl.exe`, o mejor una herramienta gráfica (ver más abajo).
-
-**Listar, de a 2 publicaciones:**
-```bash
-curl "http://localhost:3000/api/publicaciones?cantidad=2&from=0"
-```
-Devuelve 2 publicaciones y `"hayMas": true`. Para las siguientes: `from=2`.
-
-**Listar solo las de un usuario:**
-```bash
-curl "http://localhost:3000/api/publicaciones?usuario=Dev&cantidad=5"
-```
-
-**Obtener una publicación:**
-```bash
-curl http://localhost:3000/api/publicaciones/1
-```
-Devuelve la publicación con su arreglo `comentarios`.
-
-**Obtener una que no existe (404):**
-```bash
-curl -i http://localhost:3000/api/publicaciones/999
-```
-```
-HTTP/1.1 404 Not Found
-{"error":"Publicación no encontrada"}
-```
-
-**Crear una publicación (201):**
-```bash
-curl -i -X POST http://localhost:3000/api/publicaciones \
-  -H "Content-Type: application/json" \
-  -d '{"titulo":"Mi primera publicación","comunidad":"Programacion","contenido":"Hola desde la API","usuario":"Dev"}'
-```
-Responde `201 Created`, un header `Location: /api/publicaciones/21` y la publicación creada. Recargá la web y aparece primera en el feed.
-
-**Crear con datos inválidos (400):**
-```bash
-curl -i -X POST http://localhost:3000/api/publicaciones \
-  -H "Content-Type: application/json" \
-  -d '{"titulo":5}'
-```
-```
-HTTP/1.1 400 Bad Request
-{"error":"Datos inválidos","detalles":["\"titulo\" es obligatorio, debe ser string y tener hasta 200 caracteres", ...]}
-```
-
-**Crear con un usuario que no existe (400):**
-```bash
-curl -i -X POST http://localhost:3000/api/publicaciones \
-  -H "Content-Type: application/json" \
-  -d '{"titulo":"x","comunidad":"x","contenido":"x","usuario":"Fantasma"}'
-```
-```
-HTTP/1.1 400 Bad Request
-{"error":"El usuario \"Fantasma\" no existe"}
-```
-
-**Editar una publicación (200):**
-```bash
-curl -X PUT http://localhost:3000/api/publicaciones/21 \
-  -H "Content-Type: application/json" \
-  -d '{"titulo":"Título editado","comunidad":"DesarrolloWeb","contenido":"Contenido editado"}'
-```
-Devuelve la publicación con los datos nuevos. Con un id inexistente responde `404`.
-
-**Paginación inválida (400):**
-```bash
-curl -i "http://localhost:3000/api/publicaciones?cantidad=abc"
-```
-```
-HTTP/1.1 400 Bad Request
-{"error":"\"cantidad\" debe ser un entero entre 1 y 50"}
-```
-
-### Con una herramienta gráfica (Postman, Thunder Client, Insomnia)
-
-1. Elegí el método y poné la URL, por ejemplo `POST http://localhost:3000/api/publicaciones`.
-2. En **Headers** agregá `Content-Type: application/json`.
-3. En **Body**, elegí *raw / JSON* y pegá el JSON, por ejemplo:
-   ```json
-   {
-     "titulo": "Mi primera publicación",
-     "comunidad": "Programacion",
-     "contenido": "Hola desde la API",
-     "usuario": "Dev"
-   }
-   ```
-
-## 5. Probar la base de datos directamente
-
-**Entrar a la consola de PostgreSQL:**
-```bash
-docker compose exec db psql -U roddit -d roddit
-```
-Dentro se escribe SQL terminado en `;`. Se sale con `\q`. Las tablas son `usuarios`, `publicaciones` y `comentarios`.
-
-**Insertar una publicación sin pasar por la API:**
-```bash
-docker compose exec db psql -U roddit -d roddit -c "INSERT INTO publicaciones (titulo, comunidad, usuario_id, contenido) VALUES ('Prueba directa a la BD', 'Programacion', (SELECT id FROM usuarios WHERE nombre = 'Dev'), 'Insertada con SQL');"
-```
-Recargá la web (`F5`): aparece primera en el feed, sin reiniciar nada. La API consulta la base en cada pedido.
-
-**Agregarle un comentario** (reemplazá `21` por el id de tu publicación):
-```bash
-docker compose exec db psql -U roddit -d roddit -c "INSERT INTO comentarios (publicacion_id, usuario_id, contenido) VALUES (21, (SELECT id FROM usuarios WHERE nombre = 'Mati'), 'Comentario de prueba');"
-```
-
-**Ver las últimas publicaciones:**
-```bash
-docker compose exec db psql -U roddit -d roddit -c "SELECT id, titulo FROM publicaciones ORDER BY id DESC LIMIT 5;"
-```
-
-## 6. Detener, reiniciar y resetear
-
-| Qué querés hacer | Comando |
-|---|---|
-| Detener el servidor | `Ctrl + C` en la terminal donde corre `npm run dev` |
-| Apagar la base (**conserva** los datos) | `docker compose down` |
-| Volver a prenderla | `docker compose up -d` |
-| Ver los logs de la base | `docker compose logs -f db` |
-| **Borrar todo y empezar de cero** (datos de ejemplo originales) | `docker compose down -v` y después `docker compose up -d` |
-
-> `db/init.sql` se ejecuta **solo la primera vez**, cuando se crea la base. Si lo modificás, o querés recuperar los datos originales, usá `docker compose down -v`. **Esto borra todos los datos.**
->
-> Las fechas de los datos de ejemplo ("hace 2 h", "hace 1 día") se calculan en el momento en que se crea la base. Si la dejás varios días, se van a ver cada vez más viejas.
-
-## 7. Problemas frecuentes
-
-| Síntoma | Causa y solución |
-|---|---|
-| `SASL: client password must be a string` o `DATABASE_URL = undefined` | Falta el archivo `.env`, o está vacío. Repetí el paso 3. Además, el servidor hay que iniciarlo con `npm run dev`, no con `node src/app.js` a secas. |
-| `ECONNREFUSED` al abrir la web o la API | La base no está corriendo. Revisá con `docker compose ps` y levantala con `docker compose up -d`. |
-| `Cannot connect to the Docker daemon` | Docker Desktop está cerrado. Abrilo y esperá a que termine de iniciar. |
-| `relation "publicaciones" does not exist` | La base se creó sin cargar `db/init.sql`. Ejecutá `docker compose down -v` y después `docker compose up -d`. |
-| El contenedor `roddit-db` queda en `Exited` y los logs dicen `Is a directory` | `db/init.sql` no existe o se convirtió en una carpeta. Verificá con `ls -la db/` que sea un archivo y repetí `docker compose down -v` y `docker compose up -d`. |
-| `port is already allocated` (puerto 5432) | Ya tenés un PostgreSQL instalado. En `docker-compose.yml` cambiá `"5432:5432"` por `"5433:5432"` y en `.env` poné `5433` en el puerto de `DATABASE_URL`. |
-| `EADDRINUSE` (puerto 3000) | Otro programa usa ese puerto. Cambiá `PORT` en `.env`, por ejemplo a `3001`, y entrá a `http://localhost:3001`. |
-| `node: bad option: --env-file` | Tu Node es anterior a 20.6. Actualizalo y verificá con `node --version`. |
-
-## 8. Estructura del proyecto
-
-```
-Roddit/
-├── public/                    ← el sitio (lo sirve Express)
-│   ├── index.html
-│   ├── publicacion.html
-│   ├── perfil.html
-│   ├── css/
-│   └── js/
-│       ├── main.js                    punto de entrada: decide qué cargar en cada página
-│       ├── componentes.js             header y footer, compartidos por las 3 páginas
-│       ├── renderizarPublicaciones.js feed y detalle (pide los datos a la API)
-│       ├── renderizarPerfil.js        página de perfil
-│       ├── usuarios.js                datos del perfil
-│       └── utilidades.js              funciones auxiliares (escapar HTML, "hace 2 h")
-├── src/                       ← el servidor
-│   ├── app.js                         arranca Express y registra todo
-│   ├── db.js                          conexión a PostgreSQL
-│   ├── validaciones.js                valida los datos de entrada (errores 400)
-│   └── publicaciones.js               los 4 endpoints con sus consultas SQL
-├── db/
-│   └── init.sql                       tablas y datos de ejemplo
-├── docker-compose.yml                 contenedor de PostgreSQL
-├── .env.example                       plantilla de variables de entorno
-└── package.json
-```
-
-## 9. Cómo funciona
-
-```
-Navegador ──HTTP──► Express (Node, puerto 3000) ──SQL──► PostgreSQL (Docker, puerto 5432)
-   │                  ├─ sirve los archivos de public/
-   │                  └─ responde la API en /api/publicaciones
-   └─ el JS de la página pide los datos con fetch y los dibuja en el DOM
-```
-
-- **Paginación:** el feed no trae todo junto. Pide `cantidad=5&from=N` y al hacer clic en "Cargar más" pide los siguientes 5.
-- **Seguridad:** las consultas SQL son parametrizadas y los textos que llegan de la API se escapan antes de insertarse en el HTML, así que un título con `<script>` se muestra como texto y no se ejecuta.
-- **Datos del perfil:** las estadísticas, datos de cuenta, logros y comunidades están en `public/js/usuarios.js`. Solo las "Publicaciones recientes" del perfil salen de la API.
-- **Credenciales:** `roddit` / `roddit_pass` son de **desarrollo local**, y están a la vista en `docker-compose.yml` y `.env.example`. No usar en un entorno real.
