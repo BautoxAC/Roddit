@@ -295,10 +295,10 @@ async function cargarMasPublicaciones() {
             );
         });
 
-        // Avanzamos: la proxima pagina empieza despues de las que ya tenemos
+        //Esto es para que sepa cuantas publicaciones hay cargadas
         publicacionesCargadas += respuesta.items.length;
 
-        // Si ya no hay publicaciones se oculta
+        // El boton de cargar mas publicaciones se oculta si no hay mas publicaciones para cargar
         boton.hidden = !respuesta.hayMas;
 
         if (mensaje) {

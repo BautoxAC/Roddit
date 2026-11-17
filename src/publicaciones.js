@@ -3,12 +3,11 @@ const router = require('express').Router();
 const db = require('./db');
 const { leerPaginacion, leerId, leerPublicacion } = require('./validaciones');
 
-// Responde 400 con el mensaje (y los detalles, si los hay) que devolvio la validacion.
+// Responde 400 con el mensaje que devolvio la validacion.
 const rechazar = (res, validacion) =>
   res.status(400).json({ error: validacion.error, detalles: validacion.detalles });
 
-// Consulta base: una publicacion con el nombre/avatar de su autor
-// y la cantidad de comentarios que tiene.
+// Consulta base
 const SELECT_PUBLICACION = `
   SELECT p.id, p.titulo, p.comunidad,
          u.nombre AS usuario, u.avatar,
@@ -94,7 +93,7 @@ router.post('/', async (req, res) => {
   res.status(201).location(`/api/publicaciones/${id}`).json(await buscarPublicacion(id));
 });
 
-// PUT /api/publicaciones/:id   (edita titulo, comunidad y contenido; el autor no cambia)
+// PUT /api/publicaciones/:id   
 router.put('/:id', async (req, res) => {
   const v = leerId(req.params.id);
   if (v.error) return rechazar(res, v);

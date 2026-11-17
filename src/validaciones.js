@@ -1,7 +1,3 @@
-// Funciones que revisan los datos de entrada.
-// Todas devuelven un objeto:
-//   - si hay un problema:  { error: 'mensaje', detalles?: [...] }
-//   - si esta todo bien:   los valores ya convertidos (cantidad, id, datos...)
 
 const CANTIDAD_POR_DEFECTO = 10;
 const CANTIDAD_MAXIMA = 50;
@@ -37,9 +33,7 @@ function leerId(valor) {
   return { id };
 }
 
-// Body de POST (exigeUsuario: true) y de PUT (exigeUsuario: false)
 function leerPublicacion(body, { exigeUsuario }) {
-  // En Express 5, req.body es undefined si no llego un JSON.
   body = body ?? {};
 
   if (typeof body !== 'object' || Array.isArray(body)) {
@@ -60,7 +54,6 @@ function leerPublicacion(body, { exigeUsuario }) {
     return { error: 'Datos inválidos', detalles };
   }
 
-  // Devolvemos solo los campos permitidos, sin espacios sobrantes.
   return {
     titulo: body.titulo.trim(),
     comunidad: body.comunidad.trim(),

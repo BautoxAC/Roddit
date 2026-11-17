@@ -1,5 +1,4 @@
-// Convierte un texto en HTML seguro: los datos que vienen de la API
-// (que pudieron ser escritos por cualquier usuario) nunca se interpretan como HTML.
+// Convierte un texto en HTML seguro
 function escaparHtml(valor) {
     return String(valor)
         .replaceAll("&", "&amp;")
